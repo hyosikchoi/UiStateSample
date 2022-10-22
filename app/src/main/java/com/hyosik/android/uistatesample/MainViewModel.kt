@@ -7,6 +7,6 @@ import kotlinx.coroutines.flow.StateFlow
 
 class MainViewModel() : ViewModel() {
 
-     private val _personList : StateFlow<UiState> = MutableStateFlow(UiState.UnInitialized)
+     private val _uiState : StateFlow<UiState> = MutableStateFlow(UiState.UnInitialized)
 
 }
