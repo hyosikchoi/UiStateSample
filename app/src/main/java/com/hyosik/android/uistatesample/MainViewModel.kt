@@ -14,7 +14,7 @@ class MainViewModel : ViewModel() {
 
      val uiState : StateFlow<UiState> = _uiState.asStateFlow()
 
-     private var personDummyKey : Int = 1
+     var personDummyKey : Int = 1
 
      private val getPerson = flow<List<Person>> {
           emit((personDummyKey until (personDummyKey+PAGING_SIZE)).map { key ->
