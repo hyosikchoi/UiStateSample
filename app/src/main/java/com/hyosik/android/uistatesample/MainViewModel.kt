@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hyosik.android.uistatesample.uistate.UiState
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
@@ -28,6 +29,7 @@ class MainViewModel : ViewModel() {
      fun fetchPerson() = viewModelScope.launch {
          getPerson.onStart {
               _uiState.update { state -> state.copy(isLoading = true , isError = false)}
+              delay(2000)
          }.catch { e ->
               _uiState.value = UiState(isError = true)
          }.collectLatest { personList ->
